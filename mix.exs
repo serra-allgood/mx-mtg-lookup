@@ -26,7 +26,8 @@ defmodule MxMtgLookup.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
       {:igor, "~> 0.2.1"},
       {:finch, "~> 0.8.0"},
-      {:jason, "~> 1.2"}
+      {:jason, "~> 1.2"},
+      {:polyjuice_client, git: "https://gitlab.com/serra-allgood/polyjuice_client.git", branch: "master", override: true},
     ]
   end
 end

@@ -7,7 +7,7 @@ defmodule MxMtgLookup.Responder.Lookup do
       with {:ok, resp} <- Scry.named(match),
            {:ok, mxc_uri} <- Polyjuice.Client.Media.upload(bot.client, resp.body, [filename: "#{match}.jpg", mimetype: "image/jpg"]) do
         Polyjuice.Client.MsgBuilder.image(mxc_uri)
-        |> Polyjuice.Client.MsgBuilder.to_message
+        |> Polyjuice.Client.MsgBuilder.to_message("m.image")
         |> Igor.send(msg, bot)
            else
             {:error, details} when is_binary(details) ->
