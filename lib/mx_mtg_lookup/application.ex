@@ -3,7 +3,8 @@ defmodule MxMtgLookup.Application do
 
   def start(_type, _args) do
     children = [
-      {Igor, Application.get_all_env(:igor)}
+      {Igor, Application.get_all_env(:igor)},
+      {Finch, name: ScryFinch}
     ]
     opts = [strategy: :one_for_one, name: MxMtgLookup.Supervisor]
     Supervisor.start_link(children, opts)
