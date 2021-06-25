@@ -23,3 +23,5 @@ erl_crash.dump
 mx_mtg_lookup-*.tar
 
 /config/config.exs
+
+*.dets

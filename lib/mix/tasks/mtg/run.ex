@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.Igor.Run do
+defmodule Mix.Tasks.Mtg.Run do
   @moduledoc """
   Runs Igor as a standalone bot.
 
@@ -13,7 +13,7 @@ defmodule Mix.Tasks.Igor.Run do
   @impl Mix.Task
   def run(args) do
     Mix.Task.run("app.start", args)
-    {:ok, pid} = Igor.start_link(Application.get_all_env(:igor))
+    {:ok, pid} = MxMtgLookup.start_link([])
     ref = Process.monitor(pid)
 
     receive do

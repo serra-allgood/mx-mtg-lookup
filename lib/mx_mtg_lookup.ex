@@ -1,18 +1,9 @@
 defmodule MxMtgLookup do
-  @moduledoc """
-  Documentation for MxMtgLookup.
-  """
+  use GenServer
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> MxMtgLookup.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def start_link(opts) do
+    GenServer.start_link(__MODULE__, opts)
   end
+
+  def init(state), do: {:ok, state}
 end
