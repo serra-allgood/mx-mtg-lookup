@@ -1,8 +1,9 @@
 defmodule MxMtgLookup.Responder.Lookup do
   use Igor.Responder.ModuleHelper
 
-  listen ~r/\[\[(.+)\]\]/, matches, msg, bot do
+  listen ~r/\[\[([\w\s,:]+)\]\]/, matches, msg, bot do
     matches
+    |> IO.inspect()
     |> Enum.each(fn [_, match] ->
       with {:ok, resp} <- Scry.named(match),
            {:ok, mxc_uri} <- Polyjuice.Client.Media.upload(bot.client, resp.body, [filename: "#{match}.jpg", mimetype: "image/jpg"]) do
